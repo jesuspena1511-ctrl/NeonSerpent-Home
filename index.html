@@ -1,143 +1,162 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Neon Serpent - Oficial</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeonSerpent - Descarga Oficial</title>
+    <!-- Fuente moderna de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-    body {
-      background-color: #080810;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      overflow: hidden;
-      position: relative;
-    }
+        body {
+            background-color: #08080c;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow-x: hidden;
+            position: relative;
+        }
 
-    /* Fondo con rejilla neón */
-    body::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: 
-        radial-gradient(circle at center, rgba(0, 255, 204, 0.1) 0%, transparent 70%),
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-      background-size: 100% 100%, 40px 40px, 40px 40px;
-      z-index: 1;
-    }
+        /* Fondo con destellos neón difuminados */
+        body::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: -20%;
+            width: 60vw;
+            height: 60vw;
+            background: radial-gradient(circle, rgba(0, 255, 136, 0.15) 0%, transparent 70%);
+            z-index: -1;
+        }
 
-    .container {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      background: rgba(15, 15, 25, 0.85);
-      padding: 50px 40px;
-      border-radius: 20px;
-      border: 2px solid #00ffcc;
-      box-shadow: 0 0 25px rgba(0, 255, 204, 0.3), inset 0 0 15px rgba(0, 255, 204, 0.2);
-      backdrop-filter: blur(10px);
-      max-width: 500px;
-      width: 90%;
-    }
+        body::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            right: -20%;
+            width: 60vw;
+            height: 60vw;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.15) 0%, transparent 70%);
+            z-index: -1;
+        }
 
-    h1 {
-      font-size: 3rem;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      color: #fff;
-      text-shadow: 
-        0 0 5px #fff,
-        0 0 10px #00ffcc,
-        0 0 20px #00ffcc,
-        0 0 40px #00ffcc;
-      margin-bottom: 10px;
-    }
+        header {
+            text-align: center;
+            padding: 50px 20px 20px;
+        }
 
-    p.subtitle {
-      color: #a0a0c0;
-      font-size: 1.1rem;
-      margin-bottom: 40px;
-    }
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5),
+                         0 0 20px rgba(0, 255, 136, 0.3),
+                         0 0 40px rgba(0, 255, 136, 0.2);
+            margin-bottom: 10px;
+        }
 
-    .btn-group {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
+        p.subtitle {
+            font-size: 1.2rem;
+            color: #a0a0c0;
+            font-weight: 300;
+        }
 
-    .btn {
-      text-decoration: none;
-      padding: 16px 32px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      border-radius: 10px;
-      transition: all 0.3s ease;
-      position: relative;
-      cursor: pointer;
-    }
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
 
-    /* Botón de Descargar Executable */
-    .btn-download {
-      color: #080810;
-      background: #00ffcc;
-      border: 2px solid #00ffcc;
-      box-shadow: 0 0 15px rgba(0, 255, 204, 0.6);
-    }
+        .card {
+            background: rgba(20, 20, 30, 0.6);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
 
-    .btn-download:hover {
-      background: #fff;
-      color: #080810;
-      box-shadow: 0 0 30px rgba(0, 255, 204, 1);
-      transform: translateY(-3px);
-    }
+        .card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #00ff88;
+        }
 
-    /* Botón Web (Navegador) - Lo activaremos en el siguiente paso */
-    .btn-web {
-      color: #ff007f;
-      background: transparent;
-      border: 2px solid #ff007f;
-      box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
-    }
+        .card p {
+            color: #b0b0d0;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
 
-    .btn-web:hover {
-      background: #ff007f;
-      color: #fff;
-      box-shadow: 0 0 30px rgba(255, 0, 127, 0.9);
-      transform: translateY(-3px);
-    }
-  </style>
+        /* Botón de descarga llamativo con efecto neón */
+        .btn-download {
+            display: inline-block;
+            background: linear-gradient(135deg, #00ff88 0%, #00b359 100%);
+            color: #08080c;
+            padding: 16px 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.8),
+                        0 0 60px rgba(0, 255, 136, 0.4);
+            background: linear-gradient(135deg, #1aff99 0%, #00cc66 100%);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #606080;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 136, 0.05);
+        }
+    </style>
 </head>
 <body>
 
-  <div class="container">
-    <h1>NEON SERPENT</h1>
-    <p class="subtitle">¡El juego arcade neón definitivo!</p>
+    <header>
+        <h1>NeonSerpent</h1>
+        <p class="subtitle">Sumérgete en la acción y supera todos los niveles</p>
+    </header>
 
-    <div class="btn-group">
-      <!-- Botón para descargar el ejecutable -->
-      <a href="neon-serpent.zip" class="btn btn-download" download>
-        ⚡ Descargar Juego (.EXE)
-      </a>
+    <main>
+        <div class="card">
+            <h2>¡Versión para PC Disponible!</h2>
+            <p>Descarga el instalador ejecutable directamente y comienza a jugar ahora mismo con el mejor rendimiento.</p>
+            
+            <!-- REEMPLAZA EL ENLACE DE ABAJO CON TU ENLACE DE GOOGLE DRIVE O MEDIAFIRE -->
+            <a href="https://drive.google.com/file/d/1mea07Kb5D5krbN_7YGwXTO1BaVO-65wo/view?usp=drive_link" class="btn-download" target="_blank">
+                ⚡ Descargar Juego (.EXE)
+            </a>
+        </div>
+    </main>
 
-      <!-- Botón para jugar en navegador (Próximamente lo enlazamos) -->
-      <a href="#" class="btn btn-web">
-        🌐 Jugar en el Navegador
-      </a>
-    </div>
-  </div>
+    <footer>
+        <p>&copy; 2026 NeonSerpent Project. Todos los derechos reservados.</p>
+    </footer>
 
 </body>
 </html>
