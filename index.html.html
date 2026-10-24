@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neon Serpent - Oficial</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #080810;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Fondo con rejilla neón */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: 
+        radial-gradient(circle at center, rgba(0, 255, 204, 0.1) 0%, transparent 70%),
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 100% 100%, 40px 40px, 40px 40px;
+      z-index: 1;
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      background: rgba(15, 15, 25, 0.85);
+      padding: 50px 40px;
+      border-radius: 20px;
+      border: 2px solid #00ffcc;
+      box-shadow: 0 0 25px rgba(0, 255, 204, 0.3), inset 0 0 15px rgba(0, 255, 204, 0.2);
+      backdrop-filter: blur(10px);
+      max-width: 500px;
+      width: 90%;
+    }
+
+    h1 {
+      font-size: 3rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: #fff;
+      text-shadow: 
+        0 0 5px #fff,
+        0 0 10px #00ffcc,
+        0 0 20px #00ffcc,
+        0 0 40px #00ffcc;
+      margin-bottom: 10px;
+    }
+
+    p.subtitle {
+      color: #a0a0c0;
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .btn {
+      text-decoration: none;
+      padding: 16px 32px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      position: relative;
+      cursor: pointer;
+    }
+
+    /* Botón de Descargar Executable */
+    .btn-download {
+      color: #080810;
+      background: #00ffcc;
+      border: 2px solid #00ffcc;
+      box-shadow: 0 0 15px rgba(0, 255, 204, 0.6);
+    }
+
+    .btn-download:hover {
+      background: #fff;
+      color: #080810;
+      box-shadow: 0 0 30px rgba(0, 255, 204, 1);
+      transform: translateY(-3px);
+    }
+
+    /* Botón Web (Navegador) - Lo activaremos en el siguiente paso */
+    .btn-web {
+      color: #ff007f;
+      background: transparent;
+      border: 2px solid #ff007f;
+      box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+    }
+
+    .btn-web:hover {
+      background: #ff007f;
+      color: #fff;
+      box-shadow: 0 0 30px rgba(255, 0, 127, 0.9);
+      transform: translateY(-3px);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>NEON SERPENT</h1>
+    <p class="subtitle">¡El juego arcade neón definitivo!</p>
+
+    <div class="btn-group">
+      <!-- Botón para descargar el ejecutable -->
+      <a href="neon-serpent.zip" class="btn btn-download" download>
+        ⚡ Descargar Juego (.EXE)
+      </a>
+
+      <!-- Botón para jugar en navegador (Próximamente lo enlazamos) -->
+      <a href="#" class="btn btn-web">
+        🌐 Jugar en el Navegador
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>
